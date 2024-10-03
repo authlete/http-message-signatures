@@ -42,9 +42,13 @@ public class StructuredFieldToken
      *
      * @see <a href="https://www.rfc-editor.org/rfc/rfc8941.html#section-3.3.4"
      *      >RFC 8941 Structured Field Values for HTTP, Section 3.3.4. Tokens</a>
+     *
+     * @see <a href="https://www.rfc-editor.org/rfc/rfc7230.html#section-3.2.6"
+     *      >RFC 7230 Hypertext Transfer Protocol (HTTP/1.1): Message Syntax
+     *       and Routing, Section 3.2.6. Field Value Components</a>
      */
     private static final Pattern PATTERN_SF_TOKEN =
-            Pattern.compile("^[A-Za-z*][!#$%&'*+.^_`|~0-9A-Za-z-]$");
+            Pattern.compile("^[A-Za-z*][!#$%&'*+.^_`|~0-9A-Za-z:/-]*$");
 
 
     private final String token;

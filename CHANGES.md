@@ -1,6 +1,9 @@
 CHANGES
 =======
 
+- `StructuredFieldToken` class
+  * Fixed a bug in the regular expression.
+
 1.1 (2024-10-01)
 ----------------
 
