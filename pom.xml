@@ -4,7 +4,7 @@
 
     <groupId>com.authlete</groupId>
     <artifactId>http-message-signatures</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>
@@ -32,7 +32,7 @@
         <connection>scm:git:git@github.com:authlete/http-message-signatures.git</connection>
         <developerConnection>scm:git:git@github.com:authlete/http-message-signatures.git</developerConnection>
         <url>https://github.com/authlete/http-message-signatures.git</url>
-        <tag>HEAD</tag>
+        <tag>http-message-signatures-1.2</tag>
     </scm>
 
     <properties>
