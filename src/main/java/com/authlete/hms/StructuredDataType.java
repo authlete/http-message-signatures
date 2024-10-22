@@ -93,11 +93,17 @@ public enum StructuredDataType
             case "cdn-cache-control":
                 return DICTIONARY;
 
+            // Client-Cert, defined in RFC 9440: Client-Cert HTTP Field.
             case "client-cert":
                 return ITEM;
 
+            // Client-Cert-Chain, defined in RFC 9440: Client-Cert HTTP Field.
             case "client-cert-chain":
                 return LIST;
+
+            // Content-Digest, defined in RFC 9530: Digest Fields.
+            case "content-digest":
+                return DICTIONARY;
 
             case "cross-origin-embedder-policy":
                 return ITEM;
@@ -120,10 +126,24 @@ public enum StructuredDataType
             case "proxy-status":
                 return LIST;
 
+            // Repr-Digest, defined in RFC 9530: Digest Fields.
+            case "repr-digest":
+                return DICTIONARY;
+
+            // Signature, defined in RFC 9421: HTTP Message Signatures.
             case "signature":
                 return DICTIONARY;
 
+            // Signature-Input, defined in RFC 9421: HTTP Message Signatures.
             case "signature-input":
+                return DICTIONARY;
+
+            // Want-Content-Digest, defined in RFC 9530: Digest Fields.
+            case "want-content-digest":
+                return DICTIONARY;
+
+            // Want-Repr-Digest, defined in RFC 9530: Digest Fields.
+            case "want-repr-digest":
                 return DICTIONARY;
 
             // HTTP fields used in RFC 8941 used for examples.
