@@ -50,6 +50,18 @@
         <structured-fields.version>0.4</structured-fields.version>
     </properties>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>authlete</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+
+        <repository>
+            <id>authlete</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
 
         <dependency>
@@ -79,108 +91,6 @@
         </dependency>
 
     </dependencies>
-
-    <profiles>
-        <profile>
-            <id>Java9</id>
-            <activation>
-                <jdk>[9,)</jdk>
-            </activation>
-        </profile>
-        <profile>
-            <id>doclint</id>
-            <activation>
-                <jdk>[1.8,)</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <configuration>
-                            <additionalJOption>-J-Duser.language=en -Xdoclint:-html</additionalJOption>
-                            <additionalOptions>-Xdoclint:-html</additionalOptions>
-                            <source>8</source>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-         <profile>
-            <activation>
-                <jdk>[1.9,)</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <configuration>
-                            <additionalJOption>-J-Duser.language=en -locale en -frames</additionalJOption>
-                            <source>8</source>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-       <profile>
-            <id>external</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>authlete</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
-        
-                <repository>
-                    <id>authlete</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-            <repositories>
-                <repository>
-                    <id>authlete-internal</id>
-                    <url>artifactregistry://us-maven.pkg.dev/authlete/internal</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>${nexus-staging-maven-plugin.version}</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>authlete</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>internal</id>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>authlete-internal</id>
-                    <url>artifactregistry://us-maven.pkg.dev/authlete/internal</url>
-                </snapshotRepository>
-                <repository>
-                    <id>authlete-internal</id>
-                    <url>artifactregistry://us-maven.pkg.dev/authlete/internal</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
 
     <build>
         <plugins>
@@ -214,7 +124,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
-                    <additionalJOption>-J-Duser.language=en</additionalJOption>
+                    <additionalJOption>-J-Duser.language=en -locale en</additionalJOption>
                     <links>
                         <link>https://www.javadoc.io/doc/com.nimbusds/nimbus-jose-jwt/latest/</link>
                         <link>https://reschke.github.io/structured-fields/apidocs/</link>
@@ -271,6 +181,18 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus-staging-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>authlete</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
             </plugin>
         </plugins>
     </build>
