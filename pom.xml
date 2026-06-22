@@ -39,14 +39,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
-        <junit.version>5.11.0</junit.version>
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-        <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
-        <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
-        <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
-        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-        <nimbus-jose-jwt.version>9.41.1</nimbus-jose-jwt.version>
+        <junit.version>5.14.4</junit.version>
+        <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
+        <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
+        <maven-jar-plugin.version>3.5.0</maven-jar-plugin.version>
+        <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
+        <maven-release-plugin.version>3.3.1</maven-release-plugin.version>
+        <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
+        <nimbus-jose-jwt.version>10.9.1</nimbus-jose-jwt.version>
         <structured-fields.version>0.4</structured-fields.version>
     </properties>
 
